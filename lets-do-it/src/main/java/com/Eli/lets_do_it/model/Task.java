@@ -5,28 +5,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "tasks")
-public class Task_model {
+public class Task {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
-    private Long id;
+    private Integer task_id;
+    private Integer user_id;
+    private Integer category_id;
     private String title;
     private boolean completed;
     private boolean duplicate;
-
-    public Task_model(){};
-
-    public void setId(Long id){this.id=id;}
-
-    public void setTitle(String title){this.title=title;}
-
-    public void setCompleted(boolean completed){this.completed=completed;}
-
-    public void setDuplicate(boolean duplicate){this.duplicate=duplicate;}
-
+    private byte priority;
+    private LocalDateTime dueDate;
 }
