@@ -4,24 +4,24 @@ import java.util.List;
 import com.Eli.lets_do_it.model.Task;
 import com.Eli.lets_do_it.repository.TaskRepository;
 import org.springframework.stereotype.Service;
-import com.Eli.lets_do_it.service.interfaces.Tasks_service;
+import com.Eli.lets_do_it.service.interfaces.TaskService;
 
 @Service
-public class Task_serviceImpl implements Tasks_service {
+public class TaskServiceImpl implements TaskService {
     private final TaskRepository task_repository;
 
-    public Task_serviceImpl(TaskRepository task_repository){
+    public TaskServiceImpl(TaskRepository task_repository){
         this.task_repository = task_repository;
 
     }
 
     @Override
-    public List<Task> getAllTasks(){
+    public List<Task> getAllTask(){
         return task_repository.findAll();
     }
 
     @Override
-    public Task getTaskById(Long id){
+    public Task getTaskById(Integer id){
         return task_repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found"));
     }
@@ -32,7 +32,7 @@ public class Task_serviceImpl implements Tasks_service {
     }
 
     @Override
-    public Task deleteTaskById(Long id){
+    public Task deleteTaskById(Integer id){
         Task task = task_repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found"));
         task_repository.delete(task);
@@ -40,7 +40,7 @@ public class Task_serviceImpl implements Tasks_service {
     }
 
     @Override
-    public Task updateTask(Long id, Task task){
+    public Task updateTask(Integer id, Task task){
         Task existingTask = task_repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found"));
 
