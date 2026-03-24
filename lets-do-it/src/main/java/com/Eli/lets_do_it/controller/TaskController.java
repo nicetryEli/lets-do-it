@@ -31,5 +31,9 @@ public class TaskController {
         return taskService.createTask(task);
     }
 
-    
+    @PutMapping("/{task_id}")
+    public Task updateTask(@PathVariable Integer task_id, Task task){return taskService.updateTask(task_id, task);}
+
+    @GetMapping("/{task_id}")
+    public Task getTaskById(@PathVariable Integer task_id){return taskService.getTaskById(task_id);}
 }
