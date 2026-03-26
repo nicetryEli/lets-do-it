@@ -32,4 +32,14 @@ public class CategoryServiceImpl implements CategoryService {
         existingCategory.setCreated_at(category.getCreated_at());
         return categoryRepository.save(existingCategory);
     }
+
+    @Override
+    public Category deleteCategory(Integer id){
+        Category tmp = getCategoryById(id);
+        categoryRepository.delete(tmp);
+        return  tmp;
+    }
+
+    @Override
+
 }
