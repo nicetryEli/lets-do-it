@@ -11,7 +11,7 @@ public interface CategoryService {
     Category createCategory(Category cate);
     Category updateCategory(Integer id, Category category);
     Category deleteCategory(Integer id);
-    List<Task> getAllTaskFromCategory(Integer id);
+    List<Task> getAllTaskFromCategory(Integer categoryId);
     Task addTaskToCategory(Integer id, Task task);
     Task deleteTaskFromCategory(Integer cate_id, Integer id);
     Task updateTaskFromCategory(Integer cate_id, Task task);

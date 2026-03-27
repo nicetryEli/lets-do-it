@@ -1,6 +1,7 @@
 package com.Eli.lets_do_it.service.implementation;
 
 import com.Eli.lets_do_it.model.Category;
+import com.Eli.lets_do_it.model.Task;
 import com.Eli.lets_do_it.repository.CategoryRepository;
 import com.Eli.lets_do_it.service.interfaces.CategoryService;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -41,5 +42,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public List<Task> getAllTaskFromCategory(Integer categoryId){
+        
+    }
 
 }
