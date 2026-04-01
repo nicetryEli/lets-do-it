@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -21,4 +22,6 @@ public class Category {
     private Integer user_id;
     private  String name;
     private LocalDateTime created_at;
+    @OneToMany(mappedBy = "category")
+    private List<Task> category_task;
 }

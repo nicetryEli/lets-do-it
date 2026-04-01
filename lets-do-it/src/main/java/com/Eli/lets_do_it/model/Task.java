@@ -1,10 +1,7 @@
 package com.Eli.lets_do_it.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,10 +16,13 @@ public class Task {
 
     private Integer task_id;
     private Integer user_id;
-    private Integer category_id;
     private String title;
     private boolean completed;
     private boolean duplicate;
     private byte priority;
     private LocalDateTime dueDate;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 }
