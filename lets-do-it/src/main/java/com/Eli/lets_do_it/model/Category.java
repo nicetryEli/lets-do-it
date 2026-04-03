@@ -22,6 +22,6 @@ public class Category {
     private Integer user_id;
     private  String name;
     private LocalDateTime created_at;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> category_task;
 }
