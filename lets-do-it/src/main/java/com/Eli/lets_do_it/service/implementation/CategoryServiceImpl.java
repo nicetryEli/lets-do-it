@@ -5,7 +5,6 @@ import com.Eli.lets_do_it.model.Task;
 import com.Eli.lets_do_it.repository.CategoryRepository;
 import com.Eli.lets_do_it.repository.TaskRepository;
 import com.Eli.lets_do_it.service.interfaces.CategoryService;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +14,9 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final TaskRepository taskRepository;
 
-    public CategoryServiceImpl(CategoryRepository categoryRepository){
+    public CategoryServiceImpl(CategoryRepository categoryRepository, TaskRepository taskRepository){
         this.categoryRepository = categoryRepository;
+        this.taskRepository = taskRepository;
     }
 
     @Override
