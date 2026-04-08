@@ -13,9 +13,11 @@ import lombok.Setter;
 public class Task {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
 
-    private Integer task_id;
-    private Integer user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     private String title;
     private boolean completed;
     private boolean duplicate;

@@ -18,10 +18,12 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer category_id;
-    private Integer user_id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     private  String name;
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Task> category_task;
+    private List<Task> tasks;
 }
